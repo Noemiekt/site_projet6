@@ -60,12 +60,19 @@ require('dotenv').config();
 
 exports.handler = async (event) => {
   // Ne procéder que pour les requêtes POST
-  // if (event.httpMethod !== 'POST') {
-  //   return {
-  //     statusCode: 405,
-  //     body: JSON.stringify({ message: "Méthode non autorisée" })
-  //   };
-  // }
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: "Méthode non autorisée" })
+    };
+  }
+
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Le corps de la requête est vide" })
+    };
+  }
 
   const body = JSON.parse(event.body);
   const id = body.id;
