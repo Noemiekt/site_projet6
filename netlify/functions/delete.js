@@ -60,12 +60,12 @@ require('dotenv').config();
 
 exports.handler = async (event) => {
   // Ne procéder que pour les requêtes POST
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ message: "Méthode non autorisée" })
-    };
-  }
+  // if (event.httpMethod !== 'POST') {
+  //   return {
+  //     statusCode: 405,
+  //     body: JSON.stringify({ message: "Méthode non autorisée" })
+  //   };
+  // }
 
   const body = JSON.parse(event.body);
   const id = body.id;
