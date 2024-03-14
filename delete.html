@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation de Suppression</title>
+    <link rel="stylesheet" href="delete.css">
+</head>
+<body>
+    <h1>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</h1>
+    <!-- Bouton de confirmation -->
+    <form action="/delete" method="post">
+        <input type="hidden" name="id" id="userId" value="">
+        <button type="submit" name="confirm_delete">Confirmer la suppression</button>
+    </form>
+    <a href="list.html">Annuler</a>
+
+    <script>
+      window.onload = function() {
+        // Récupère l'ID de l'URL, si c'est ajouté comme ?id=123
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id'); // Supposons que l'ID est passé en paramètre d'URL
+        if(id) {
+          document.getElementById('userId').value = id;
+        }
+      };
+    </script>
+</body>
+</html>
