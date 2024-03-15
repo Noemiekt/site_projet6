@@ -1,7 +1,9 @@
 const mysql = require('mysql');
 require('dotenv').config();
 
-exports.handler = async (event) => {
+const app = express();
+
+// exports.handler = async (event) => {
   // try {
     // // Ne procéder que pour les requêtes POST
     // if (event.httpMethod !== 'POST') {
@@ -101,4 +103,4 @@ exports.handler = async (event) => {
   //     body: JSON.stringify({ message: error.message || "Une erreur inattendue s'est produite" })
   //   };
   // }
-};
+// };
